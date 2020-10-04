@@ -1,12 +1,47 @@
 
 1) Explain REST and RESTful
 
+REST (Representational State Transfer) is an architecture to design web services that use the existing protocols of the web.
+
+It is mainly about the following principles:
+- Uniform Interface: All REST APIs follow the same concept.
+- Client-Server: There is a client and a server, and each can be updated/developed independently. The contract is the API with its URLs.
+- Stateless: The web service should be stateless - no sessions, no history.
+- Cacheable: Requests can be cached on the server or client side.
+- Layered System: The web service can consist of multiple layers: API, storage, authentication, security policies, load-balancing could live on separated servers. But the client just connects to a URI without knowledge about the layers.
+
+A RESTful web service adheres to all of the above mentioned principles - it implements the definition of REST. Here, the server owns resources and the client can request/update/create resources through the server.
+
 2) Explain the architectural style for the creation of a web API (client server communication, formatting language, etc.)
+
+- Use HTTP for client-server communication.
+- All operations on a resource are accessed through the same URL, where the HTTP request type defines what should be done with the resource.
+- No sessions on the server.
+- Use XML or JSON as a formatting language for request and response bodies.
 
 3) Explain HTTP requests types when used with RESTful web (GET, PUT, POST, etc.)
 
+Semantically these requests types are used for different queries and commands.
+GET - A query to list all resources or get a specific resource.
+POST - Sending data to create or store a new resource.
+PUT - Sending data to update or replace an existing resource (idempotent, as it replaces a resource with the supplied data, which is complete).
+PATCH - Sending data to update or modify an existing resource (not idempotent, as the sent data is not a complete resource, it is used to update a sub.
+DELETE - Delete an existing resource.
+
 4) Explain the difference between stateless and stateful protocol. Which type of protocol is HTTP ?
+
+A stateless protocol does not need to retain a state (or session information) on the server-side, i.e., incoming messages can be understood in its own without needing additional (historic) context.
+A stateful protocol requires the server to maintain/store a state. This state is needed to keep the communication working. An example would be TCP.
+HTTP is a stateless protocol. Each request can be understood by the server without it needing to keep any session information.
 
 5) Explain the difference between a GET and a POST (like how are sent the parameters)
 
+A GET request should normally be used for requests that do not change any state on the server - it should be used for querying information. Parameters/payload can be sent via query parameters.
+A POST request can change the state on the server - it is for sending data to the server. Parameters/payload can be sent via query parameters or in the body of the request.
+
 6) You can’t work out how to solve a coding problem. What do you do to find the answer?
+
+I will do a thorough online research about the problem - as well as reading up on the documentation and the requirements.
+If this fails or if I am still unsure about it, I will ask colleagues and friends, whether they have an idea about the problem or can help me with finding better keywords for searching for the solution.
+I would also consider, posting a question on Reddit/StackOverflow/Gitter or opening an issue on GitHub/GitLab if the problem is related to an open source library.
+Sometimes it can also help to go jogging or do something unrelated to relax the mind and then come back with a better idea.
